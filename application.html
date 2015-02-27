@@ -1,0 +1,71 @@
+<!doctype>
+<html>
+<head>
+	<title>print jira ticket</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />	
+
+	<script type="text/javascript" src="javascript/library/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="javascript/library/qrcode.js"></script>
+	<script type="text/javascript" src="javascript/library/jspdf.js"></script>
+	<script type="text/javascript" src="javascript/library/jspdf.plugin.addimage.js"></script>
+	<script type="text/javascript" src="javascript/library/jspdf.plugin.standard_fonts_metrics.js"></script>
+	<script type="text/javascript" src="javascript/library/jspdf.plugin.split_text_to_size.js"></script>
+	<script type="text/javascript" src="javascript/library/jspdf.plugin.autoPrint.js"></script>
+	<script type="text/javascript" src="javascript/library/jspdf.plugin.textEx.js"></script>
+	<script type="text/javascript" src="javascript/application.js"></script>
+
+	<style type="text/css">
+		html, body {	
+			padding: 0;
+			margin: 0;
+		}
+	</style>
+		
+	<script type="text/javascript">
+		$.urlParam = function(name){
+			var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+			if (null === results) {
+				return null;
+			} else {
+				return results[1] || null;
+			}
+		}
+		$(function() {
+
+			var title = decodeURIComponent($.urlParam('title'));
+			var project = $.urlParam('project');
+			var number = $.urlParam('number');
+
+			if (null === title) {
+				alert('The title parameter is not found');
+				return;
+			}
+
+			if (null === project) {
+				alert('The project parameter is not found');
+				return;
+			}
+
+			if (null === number) {
+				alert('The number parameter is not found');
+				return;
+			}
+
+			var qrcode = new QRCode("qrcode", project + '-' + number);
+			var node   = $('#qrcode img')[0];
+			node.onload = function() {
+				var test = PDF.create(title, number, node.src).output('datauristring');
+				var string = '<embed width="700" height="500" name="plugin" id="pdf" src="' + test + '" type="application/pdf">';
+				$('body').append(string);
+
+				window.onfocus=function(){ window.close();}
+			}
+		});
+	</script>
+</head>
+
+<body>
+	<div id="qrcode" style="display: none"></div>
+</body>
+</html>
