@@ -19,6 +19,8 @@
 		html, body {	
 			padding: 0;
 			margin: 0;
+
+			background: #555;
 		}
 	</style>
 		
@@ -55,7 +57,7 @@
 			var qrcode = new QRCode("qrcode", project + '-' + number);
 			var node   = $('#qrcode img')[0];
 			node.onload = function() {
-				var test = PDF.create(title, number, node.src).output('datauristring');
+				var test = PDF.create(title, project, number, node.src).output('datauristring');
 				var string = '<embed width="700" height="500" name="plugin" id="pdf" src="' + test + '" type="application/pdf">';
 				$('body').append(string);
 

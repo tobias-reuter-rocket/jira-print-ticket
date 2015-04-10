@@ -12,6 +12,7 @@
 
 		this.internal.events.subscribe("putCatalog", function () {
 			this.internal.write("/OpenAction " + refAutoPrintTag + " 0" + " R");
+			this.internal.write('/ViewerPreferences<</Duplex/Simplex/Enforce[/PrintScaling]/PrintScaling/None>>');
 		});
 		return this;
 	};
