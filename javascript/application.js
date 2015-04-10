@@ -5,7 +5,7 @@ var Checkboxes = {
 		pdf.setFontType('bold');
 		pdf.setFontSize(9);
 
-		pdf.text('Development', 10, 215);
+		pdf.text('Development', 14, 215);
 		pdf.text('CodeReview', 150, 215);
 		pdf.text('QA', 240, 215);
 		pdf.text('Merge', 330, 215);
@@ -14,8 +14,10 @@ var Checkboxes = {
 		pdf.setTextColor(170);
 		pdf.setFontType('normal');
 
-		pdf.rect(10, 220, 40, 30);    pdf.textEx('Who', 30, 230, 'center');
-		pdf.rect(10, 250, 40, 30);    pdf.textEx('Epic\nnumber', 30, 256, 'center');
+		pdf.setLineWidth(1);
+
+		pdf.rect(14, 220, 36, 30);    pdf.textEx('Who', 32, 230, 'center');
+		pdf.rect(14, 250, 36, 30);    pdf.textEx('Epic\nnumber', 32, 256, 'center');
 		pdf.rect(50, 220, 30, 30);    pdf.textEx('Build\ngreen', 65, 226, 'center');
 		pdf.rect(50, 250, 30, 30);    pdf.textEx('Time\nlogged', 65, 256, 'center');
 		pdf.rect(80, 220, 30, 30);    pdf.textEx('QA\nToDo', 95, 226, 'center');
@@ -51,7 +53,7 @@ var Body = {
 	draw: function(pdf, attributes) {
 		pdf.setFontSize(40);
 		pdf.setFontType('bold');
-		this.move(10, 45);
+		this.move(14, 45);
 		pdf.text(attributes.number, this.drawPointer.x, this.drawPointer.y);
 
 		pdf.setFontSize(30);
@@ -61,7 +63,7 @@ var Body = {
 		pdf.setFontType('normal');
 		pdf.textEx(
 			titleFormatted,
-			10, 
+			14, 
 			55,
 			'left'
 		);
