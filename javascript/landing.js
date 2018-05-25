@@ -20,7 +20,7 @@ var UI = {
             var number = key[1];
 
             window.open(
-                'https://127.0.0.1:90/jira-ticket/application.html?title='+title+'&project='+project+'&number='+number,
+                'https://tobias-reuter-rocket.github.io/jira-print-ticket/application.html?title='+title+'&project='+project+'&number='+number,
                 '_blank',
                 {
                     'location': 0,
