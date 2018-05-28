@@ -1,3 +1,8 @@
+### Sample board with printed cards
+
+![sample board][board]
+
+
 ### Add the following code to your GreaseMonkey (FF) or User Scripts in Chrome:
 
 ```
@@ -32,3 +37,6 @@ JiraTicketPrinter.loadScript("https://tobias-reuter-rocket.github.io/jira-print-
     hydraJiraPrintTicket.run();
 });
 ```
+
+
+[board]: images/sample-board.png "Sample board"
