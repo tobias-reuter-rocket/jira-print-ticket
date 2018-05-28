@@ -1,5 +1,6 @@
-### Sample board with printed cards
+### Samples
 
+![sample tickets][tickets]
 ![sample board][board]
 
 
@@ -39,4 +40,5 @@ JiraTicketPrinter.loadScript("https://tobias-reuter-rocket.github.io/jira-print-
 ```
 
 
-[board]: images/sample-board.png "Sample board"
+[board]: https://tobias-reuter-rocket.github.io/jira-print-ticket/images/sample-board.jpg "Sample board"
+[tickets]: https://tobias-reuter-rocket.github.io/jira-print-ticket/images/sample-tickets.jpg "Sample tickets"
